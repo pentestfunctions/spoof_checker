@@ -85,6 +85,39 @@ The tool provides specific recommendations for each risk level:
 - **Moderate Risk Domains**: Add DKIM authentication to complete email security profile
 - **All Domains**: Regularly monitor and test email authentication configurations
 
+# ProtonMail Email Authentication Warning Behavior
+
+## When You Might See a Warning Message
+
+### Scenario 1: Main Inbox with Potential Warning
+- **Authentication Status**: Valid SPF, Missing DKIM, Missing DMARC
+- **Result**: Email appears in the main inbox, sometimes with warning message
+- **Warning Text**: 
+  > This email has failed its domain's authentication requirements. It may be spoofed or improperly forwarded. [Learn more]
+
+*Note: This warning appears inconsistently - most times you won't see it despite the missing authentication elements.*
+
+### Scenario 2: Spam Folder with Warning
+- **Authentication Status**: Valid SPF, Missing DKIM, Valid DMARC
+- **Result**: Email is placed in spam folder with warning message
+- **Warning Text**:
+  > This email has failed its domain's authentication requirements. It may be spoofed or improperly forwarded. [Learn more]
+
+## Understanding Email Authentication Elements
+
+| Element | Purpose | Status Impact |
+|---------|---------|---------------|
+| **SPF** | Verifies sender's IP is authorized to send from that domain | Valid SPF helps but isn't sufficient alone |
+| **DKIM** | Cryptographically verifies email integrity and authenticity | Missing DKIM triggers warnings |
+| **DMARC** | Defines domain policy for authentication failures | Valid DMARC without DKIM can route to spam |
+
+## Key Takeaways
+
+1. For best deliverability, implement all three authentication methods
+2. Missing DKIM is particularly problematic for ProtonMail filtering
+3. Having valid DMARC without valid DKIM can actually worsen delivery (sends to spam)
+4. Warning messages appear inconsistently in the first scenario
+
 ---
 
 Made with ❤️ by [pentestfunctions](https://github.com/pentestfunctions)
