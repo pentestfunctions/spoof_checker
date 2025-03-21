@@ -6,6 +6,11 @@
 
 A powerful subdomain email authentication scanner that helps identify domains vulnerable to email spoofing.
 
+</p>
+<p align="center">
+  <img src="https://github.com/pentestfunctions/spoof_checker/blob/main/images/example_email.gif">
+</p>
+
 ## 🔍 Overview
 
 Spoof Checker automatically discovers subdomains for a target domain and analyzes their email security configurations, identifying those that could be vulnerable to email spoofing attacks. The tool checks for SPF, DKIM, and DMARC records, evaluates risk levels, and provides actionable verification commands.
